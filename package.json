@@ -1,6 +1,6 @@
 {
   "name": "generator-angular-spark",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A Yeoman generator for AngularJS + Spark",
   "keywords": [
     "yeoman-generator",
