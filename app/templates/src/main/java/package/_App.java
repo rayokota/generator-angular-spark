@@ -26,7 +26,7 @@ public class App {
 
         <% _.each(entities, function (entity) { %>
         get("<%= baseName %>/<%= pluralize(entity.name) %>", "application/json", (request, response) -> {
-            List objs = HibernateUtil.getSession().createCriteria(<%= _.capitalize(entity.name) %>.class).list();
+            List<<%= _.capitalize(entity.name) %>> objs = HibernateUtil.getSession().createCriteria(<%= _.capitalize(entity.name) %>.class).list();
             return objs;
         }, new JsonTransformer());
 

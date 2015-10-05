@@ -16,6 +16,7 @@
     <properties>
         <spark.version>2.1</spark.version>
         <hibernate.version>4.3.5.Final</hibernate.version>
+        <hibernate.validator.version>5.2.2.Final</hibernate.validator.version>
         <jackson.version>2.5.1</jackson.version>
         <guava.version>18.0</guava.version>
         <slf4j.version>1.7.10</slf4j.version>
@@ -37,6 +38,11 @@
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-c3p0</artifactId>
             <version><%= _.unescape('\$\{hibernate.version}')%></version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version><%= _.unescape('\$\{hibernate.validator.version}')%></version>
         </dependency>
         <dependency>
             <groupId>org.jadira.usertype</groupId>
