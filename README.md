@@ -38,7 +38,7 @@ Your service will run at [http://localhost:8080](http://localhost:8080).
 
 Generate the entity:
 
-    yo angular-spark [myentity]
+    yo angular-spark:entity [myentity]
 
 You will be asked to specify attributes for the entity, where each attribute has the following:
 
