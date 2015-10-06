@@ -23,7 +23,30 @@ public class App {
             response.redirect("/index.html");
             return "";
         });
+        /* ----- Generate REST Web Services -----*/
+        <% _.each(services, function (service) { %>
+        
+            <% _.each(services.items, function (item){
+                <%if(item.type == 'get'){%>
+        get("<%= baseName %>/services/<%= service%>/<%= pluralize(item.name) %>", "application/json", (request, response) -> {
+            List objs = <%= _.capitalize(service.name) %>.<%item%>();
+            return objs;
+        }, new JsonTransformer());
 
+
+                <%} else if (item.type == 'post'){}
+
+                <%} else if (item.type == 'update'){}
+                
+                <%} else if (item.type == 'delete'){}
+                
+                <%} else if (item.type == 'post'){}
+
+                <%}%>
+            <%})%>
+        <%})%>
+
+        /* ----- Generate Entity Web services -----*/
         <% _.each(entities, function (entity) { %>
         get("<%= baseName %>/<%= pluralize(entity.name) %>", "application/json", (request, response) -> {
             List objs = HibernateUtil.getSession().createCriteria(<%= _.capitalize(entity.name) %>.class).list();

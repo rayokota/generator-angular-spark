@@ -22,7 +22,7 @@ The above prerequisites can be installed to a VM using the [Angular-Spark provis
 
 In a new directory, generate the service:
 
-    yo angular-spark
+    yo angular-spark:app
 
 Compile the service:
 
@@ -49,6 +49,20 @@ You will be asked to specify attributes for the entity, where each attribute has
 - for a Date attribute, an optional constraint to either past values or future values
 - for an Enum attribute, a list of enumerated values
 - whether the attribute is required
+
+## Creating a REST web service
+
+Generate the service:
+
+    yo angular-spark:service [myservice]
+
+You will be asked to specify attributes for the service, where each attribute has the following:
+
+- a serviceName
+- a serviceType (get, post, delete, put, options)
+- for a return Type (Object, String, Integer, Long, Float, Double, Boolean, Date, other)
+
+## Compile and Run
 
 Compile and rerun the service:
 

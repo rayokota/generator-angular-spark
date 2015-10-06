@@ -2,6 +2,8 @@ package <%= packageName %>.models;
 
 import javax.persistence.*;
 import org.joda.time.LocalDate;
+import javax.validation.constraints.*;
+import org.hibernate.validator.constraints.Email;
 
 @Entity
 @Table(name = "<%= pluralize(name) %>")
@@ -17,9 +19,9 @@ public class <%= _.capitalize(name) %> {
     <% if (attr.min) { %>@Min(value = <%= attr.min %>)<% } %>
     <% if (attr.max) { %>@Max(value = <%= attr.max %>)<% } %>
     <% if (attr.dateConstraint) { %>@<%= attr.dateConstraint %><% } %>
+    <% if (attr.attrType == 'Email') { %>@Email()<% }%>
     <% if (attr.attrType == 'Enum') { %>@Enumerated(EnumType.STRING)<% } %>
-    private <% if (attr.attrType == 'Enum') { %><%= _.capitalize(attr.attrName) %><% } else if (attr.attrType == 'Date') { %>Local<% }; %><%= attr.attrType %> <%= attr.attrName %>;
-    <% }); %>
+    private <% if (attr.attrType == 'Enum') { %><%= _.capitalize(attr.attrName) %><% } else if (attr.attrType == 'Date') { %>Local<% }; %><%= attr.attrType %> <%= attr.attrName %>; <% }); %> else if(attr.attrType =='Email') {%> String <%= attr.attrName %>;<%}%>
 
     public long getId() {
         return id;
