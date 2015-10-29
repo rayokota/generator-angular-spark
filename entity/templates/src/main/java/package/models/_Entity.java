@@ -1,7 +1,7 @@
 package <%= packageName %>.models;
 
 import javax.persistence.*;
-import javax.validation.constraints.Size
+import javax.validation.constraints.Size;
 import org.joda.time.LocalDate;
 
 @Entity
