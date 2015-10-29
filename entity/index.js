@@ -39,7 +39,7 @@ EntityGenerator.prototype.askFor = function askFor() {
     type: 'list',
     name: 'attrType',
     message: 'What is the type of the attribute?',
-    choices: ['String', 'Integer', 'Long', 'Float', 'Double', 'Boolean', 'Date', 'Enum'],
+    choices: ['String', 'Email', 'Integer', 'Long', 'Float', 'Double', 'Boolean', 'Date', 'Enum'],
     default: 'String'
   },
   {

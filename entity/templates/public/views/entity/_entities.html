@@ -28,6 +28,10 @@
                            <% if (attr.minLength) { %>ng-minlength=<%= attr.minLength %> <% } %><% if (attr.maxLength) { %>ng-maxlength=<%= attr.maxLength %><% } %>/>
                     <span class="error" ng-show="form.<%= attr.attrName %>.$error.minlength">Must be at least <%= attr.minLength %> characters.</span>
                     <span class="error" ng-show="form.<%= attr.attrName %>.$error.maxlength">Must be at most <%= attr.maxLength %> characters.</span><%
+                    <% if (attr.attrType === "Email") { %>
+                    <input type="email" class="form-control" name="<%= attr.attrName %>"
+                           ng-model="<%= name %>.<%= attr.attrName %>" ng-required="<%= attr.required %>"
+                    <span class="error" ng-show="form.<%= attr.attrName %>.$error.email">Must be a valid email.</span>
                        } else if (attr.attrType === "Integer" || attr.attrType === "Long") { %>
                     <input type="number" class="form-control" name="<%= attr.attrName %>"
                            ng-model="<%= name %>.<%= attr.attrName %>" ng-required="<%= attr.required %>"

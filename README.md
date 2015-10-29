@@ -10,11 +10,15 @@ Install [Git](http://git-scm.com), [node.js](http://nodejs.org), [JDK 8](https:/
 
 Install Yeoman:
 
-    npm install -g yo
+``` bash
+    $> npm install -g yo
+```
 
 Install the Angular-Spark generator:
 
-    npm install -g generator-angular-spark
+``` bash
+    $> npm install -g generator-angular-spark
+```
 
 The above prerequisites can be installed to a VM using the [Angular-Spark provisioner](https://github.com/rayokota/provision-angular-spark).
 
@@ -22,15 +26,21 @@ The above prerequisites can be installed to a VM using the [Angular-Spark provis
 
 In a new directory, generate the service:
 
-    yo angular-spark
+``` bash
+    $> yo angular-spark:app
+```
 
 Compile the service:
 
-    mvn compile
+``` bash
+    $> mvn compile
+```
 
 Run the service:
 
-    mvn exec:exec
+``` bash
+    $> mvn exec:exec
+```
 
 Your service will run at [http://localhost:8080](http://localhost:8080).
 
@@ -38,7 +48,9 @@ Your service will run at [http://localhost:8080](http://localhost:8080).
 
 Generate the entity:
 
-    yo angular-spark:entity [myentity]
+``` bash
+    $> yo angular-spark:entity [myentity]
+```
 
 You will be asked to specify attributes for the entity, where each attribute has the following:
 
@@ -50,17 +62,35 @@ You will be asked to specify attributes for the entity, where each attribute has
 - for an Enum attribute, a list of enumerated values
 - whether the attribute is required
 
+## Creating a REST web service
+
+Generate the service:
+
+``` bash
+    $> yo angular-spark:service [myservice]
+```
+
+You will be asked to specify attributes for the service, where each attribute has the following:
+
+- a serviceName
+- a serviceType (get, post, delete, put, options)
+- for a return Type (Object, String, Integer, Long, Float, Double, Boolean, Date, other)
+
+## Compile and Run
+
 Compile and rerun the service:
 
-    mvn compile exec:exec
-    
+``` bash
+    $> mvn compile exec:exec
+```    
 A client-side AngularJS application will now be available by running
 
-	grunt server
-	
+``` bash
+	$> grunt server
+```
+
 The Grunt server will run at [http://localhost:9000](http://localhost:9000).  It will proxy REST requests to the Spark service running at [http://localhost:8080](http://localhost:8080).
 
 At this point you should be able to navigate to a page to manage your persistent entities.  
 
 The Grunt server supports hot reloading of client-side HTML/CSS/Javascript file changes, while the Spark service supports hot reloading of Java class file changes.
-
